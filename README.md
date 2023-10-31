@@ -61,3 +61,13 @@ struct binary_tree_s
 typedef struct binary_tree_s binary_tree_t;
 ```
 
+
+## Authors
+
+| [<img src="https://avatars.githubusercontent.com/u/125689995?v=4" width="110" style="border-radius: 50%"><br><sub>Stosh Odhiambo<br><sup>@Stosh09](https://github.com/Stosh09) | [<img src="https://avatars.githubusercontent.com/u/96543749?v=4" width="110" style="border-radius: 50%"><br><sub>Ouko Franchez<br><sup>@OukoFranchez](https://github.com/OukoFranchez) |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------:|
+
+## More information
+
+
+[Alx Africa](https://www.alxafrica.com/)
