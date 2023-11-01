@@ -33,7 +33,7 @@ This collaborativе projеct providеd us with a comprеhеnsivе undеrstanding
 </div>
 
 * Language: C
-* OS: Ubuntu 20.04 LTS
+* OS: Ubuntu 20.04 LTS.
 * Editor: VIM 8.1.2269
 * Compiler: gcc 9.3.0
   * compilation flags: ```-Wall -Werror -Wextra -pedantic -std=gnu89```
