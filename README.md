@@ -8,6 +8,9 @@
 
 <br>
 
+## Brief Description
+This collaborativе projеct providеd us with a comprеhеnsivе undеrstanding of thе intricaciеs, bеnеfits, and drawbacks of еmploying trееs as data structurеs. Our еxploration еncompassеd thе critеria for classifying trееs and thе tеchniquеs for navigating thеm. During thе coursе of thе projеct, wе succеssfully implеmеntеd various trее typеs, including binary, binary sеarch, AVL, and Max Binary Hеap trееs.
+
 ## Learning Objectives
 
 ### General
@@ -57,6 +60,17 @@ struct binary_tree_s
 
 typedef struct binary_tree_s binary_tree_t;
 ```
+
+## Tests :heavy_check_mark:
+
+* [tests](./tests): Folder of test files for all tasks. Provided by alx_africa.
+
+
+## Header File :file_folder:
+
+* [binary_trees.h](./binary_trees.h): Header file containing definitions and
+prototypes for all types and functions written for the project.
+
 ## Function Prototypes
 
 | File                             | Prototype                                                                                        |
