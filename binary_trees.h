@@ -74,6 +74,7 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 const binary_tree_t *second);
 int binary_tree_is_complete(const binary_tree_t *tree);
+binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 
 /* helper function prototypes */
 void binary_tree_print(const binary_tree_t *tree);
