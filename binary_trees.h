@@ -34,6 +34,7 @@ typedef struct binary_tree_s heap_t;
 #include <stddef.h>
 
 /*tasks function prototypes*/
+int binary_tree_balance(const binary_tree_t *tree);
 size_t binary_tree_leaves(const binary_tree_t *tree);
 size_t binary_tree_depth(const binary_tree_t *tree);
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
