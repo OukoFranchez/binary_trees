@@ -38,3 +38,4 @@ void binary_tree_print(const binary_tree_t *tree);
 #include <stdlib.h>
 #include <string.h>
 #endif /* BINARY_TREES_H */
+
