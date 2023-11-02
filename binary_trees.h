@@ -27,6 +27,18 @@ typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
 
+/**
+ * struct node_s - singly linked list
+ * @node: const binary tree node
+ * @next: points to the next node
+ */
+typedef struct node_s
+{
+	const binary_tree_t *node;
+	struct node_s *next;
+} ll;
+
+
 /* standard library headers */
 #include <stdio.h>
 #include <stdlib.h>
