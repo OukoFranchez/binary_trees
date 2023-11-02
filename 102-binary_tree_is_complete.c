@@ -1,135 +1,67 @@
 #include "binary_trees.h"
 
-size_t binary_tree_height(const binary_tree_t *tree);
-size_t process_node(const binary_tree_t *node, size_t level, int flag);
-size_t binary_tree_levelorder_2(const binary_tree_t *tree);
-size_t binary_tree_sum(const binary_tree_t *tree);
-size_t binary_tree_size(const binary_tree_t *tree);
-
 /**
- * binary_tree_is_complete - check if a binary tree is complete
- * @tree: pointer to the root node
+ * binary_tree_is_complete - checks if binary tree is complete
+ * @tree: a pointer to the root node of the tree being checked
  *
- * Return: 1 if tree is complete, 0 if not or if tree is NULL
+ * Return: returns 1 if the tree is complete
+ * and 0 if the tree is not complete
+ * and 0 if tree is NULL
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	size_t tree_size = 0;
-
-	tree_size = binary_tree_size(tree);
-	return (tree_size >= binary_tree_levelorder_2(tree));
-}
-
-/**
- * binary_tree_levelorder_2 - level order traversal of a binary tree
- * @tree: pointer to the root node
- * Description: if @tree or @func is NULL, do nothing
- *
- * Return: total count of nodes discovered
- */
-size_t binary_tree_levelorder_2(const binary_tree_t *tree)
-{
-	size_t height, current, total_count = 0;
+	size_t size;
 
 	if (!tree)
-		return (0);
-
-	height = binary_tree_height(tree);
-	for (current = 0; current <= height; ++current)
-		total_count += process_node(tree, current, 0);
-
-	return (total_count);
-}
-
-/**
- * process_node - execute a function on node
- *
- * @node: the current node to pass to pass to @func
- * @level: level of the node in the binary tree
- * @flag: flag to check in ambiguous cases
- *
- * Return: number of nodes on current level
- *
- */
-size_t process_node(const binary_tree_t *node, size_t level, int flag)
-{
-	size_t count = 0;
-
-	if (!node)
-		return (0);
-	if (level == 0)
-		return (1);
-	else if (level > 0)
 	{
-		if (node->right && !(node->left))
-			count += 1;
-		if (node->left)
-		{
-			if (!(node->right) && !flag)
-				flag = 1;
-			else if (!(node->right) && flag)
-				count += 1;
-		}
-		count += process_node(node->left, level - 1, flag);
-		count += process_node(node->right, level - 1, flag);
+		return (0);
 	}
-	return (count);
+	size = binary_tree_size_custom(tree);
+
+	return (binary_tree_is_complete_helper(tree, 0, size));
 }
 
 /**
- * binary_tree_height - computes height of a binary tree
+ * binary_tree_is_complete_helper - checks if binary tree is complete
+ * @tree: a pointer to the root node of the tree being checked
+ * @index: node index being checked
+ * @size: number of nodes in the tree
  *
- * @tree: pointer to the root node
- *
- * Return: computed height, 0 if tree is NULL
- *
+ * Return: returns 1 if the tree is complete
+ * and 0 if the tree is not complete
+ * and 0 if tree is NULL
  */
-size_t binary_tree_height(const binary_tree_t *tree)
+int binary_tree_is_complete_helper(const binary_tree_t *tree,
+		size_t index, size_t size)
 {
-	size_t left_height = 0, right_height = 0;
-
 	if (!tree)
+	{
+		return (1);
+	}
+
+	if (index >= size)
+	{
 		return (0);
-	if (tree->left)
-		left_height = binary_tree_height(tree->left) + 1;
-	if (tree->right)
-		right_height = binary_tree_height(tree->right) + 1;
-	return (left_height > right_height ? left_height : right_height);
+	}
+
+	return (binary_tree_is_complete_helper(tree->left, 2 * index + 1, size) &&
+		binary_tree_is_complete_helper(tree->right, 2 * index + 2, size));
 }
 
 /**
- * binary_tree_sum - computes the total nodes under a root node
+ * binary_tree_size_custom - measures size of binary tree
+ * @tree: tree to measure its size
  *
- * @tree: pointer to the root node
- *
- * Return: total number of nodes
- *
+ * Return: returns size of the tree
+ * and 0 if tree is NULL
  */
-size_t binary_tree_sum(const binary_tree_t *tree)
-{
-	size_t left_height = 0, right_height = 0;
-
-	if (!tree)
-		return (0);
-	if (tree->left)
-		left_height = binary_tree_sum(tree->left) + 1;
-	if (tree->right)
-		right_height = binary_tree_sum(tree->right) + 1;
-
-	return (left_height + right_height);
-}
-
-/**
- * binary_tree_size - compute size of a binary tree
- *
- * @tree: pointer to the root node
- *
- * Return: computed size, or 0 if tree is NULL
- *
- */
-size_t binary_tree_size(const binary_tree_t *tree)
+size_t binary_tree_size_custom(const binary_tree_t *tree)
 {
 	if (!tree)
+	{
 		return (0);
-	return (binary_tree_sum(tree) + 1);
+	}
+
+	return (binary_tree_size_custom(tree->left) +
+			binary_tree_size_custom(tree->right) + 1);
 }
