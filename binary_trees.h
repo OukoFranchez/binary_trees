@@ -10,7 +10,7 @@
 
 /**
  * struct binary_tree_s - Binary tree node
- * @n: Integer stored in the node
+* @n: Integer stored in the node
  * @parent: Pointer to the parent node
  * @left: Pointer to the left child node
  * @right: Pointer to the right child node
@@ -27,10 +27,31 @@ typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
 
-/*Helper functions for tasks*/
-void binary_tree_print(const binary_tree_t *);
+/* standard library headers */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stddef.h>
 
-/*function prototypes*/
+/*tasks function prototypes*/
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
+void binary_tree_delete(binary_tree_t *tree);
+int binary_tree_is_root(const binary_tree_t *node);
+void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
+size_t binary_tree_height(const binary_tree_t *tree);
+size_t binary_tree_size(const binary_tree_t *tree);
+size_t binary_tree_nodes(const binary_tree_t *tree);
+int binary_tree_is_full(const binary_tree_t *tree);
+binary_tree_t *binary_tree_sibling(binary_tree_t *node);
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+const binary_tree_t *second);
+
+/* helper function prototypes */
+void binary_tree_print(const binary_tree_t *tree);
+size_t binary_tree_summation(const binary_tree_t *tree);
+size_t non_leaf_counter(const binary_tree_t *tree);
+
 
 #endif /* BINARY_TREES_H */
+
