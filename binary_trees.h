@@ -46,6 +46,7 @@ typedef struct node_s
 #include <stddef.h>
 
 /*tasks function prototypes*/
+avl_t *array_to_avl(int *array, size_t size);
 int binary_tree_is_avl(const binary_tree_t *tree);
 bst_t *bst_remove(bst_t *root, int value);
 bst_t *bst_search(const bst_t *tree, int value);
