@@ -32,7 +32,7 @@ This collaborativе projеct providеd us with a comprеhеnsivе undеrstanding
 
 </div>
 
-* Language: C
+* Language: C.
 * OS: Ubuntu 20.04 LTS.
 * Editor: VIM 8.1.2269
 * Compiler: gcc 9.3.0
